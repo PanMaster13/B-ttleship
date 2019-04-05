@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 /// <summary>
 /// AIHardPlayer is a type of player. This AI will know directions of ships
 /// when it has found 2 ship tiles and will try to destroy that ship. If that ship
@@ -133,7 +136,7 @@ public class AIHardPlayer : AIPlayer
 					throw (new ApplicationException("AI has gone in an invalid state"));
 			}
 			
-		} while (row < 0 || column < 0 || row >= EnemyGrid.Height || column >= EnemyGrid.Width || EnemyGrid.Item(row, column) != TileView.Sea); //while inside the grid and not a sea tile do the search
+		} while (row < 0 || column < 0 || row >= EnemyGrid.Height || column >= EnemyGrid.Width || EnemyGrid[row, column] != TileView.Sea); //while inside the grid and not a sea tile do the search
 	}
 	
 	/// <summary>
@@ -147,8 +150,8 @@ public class AIHardPlayer : AIPlayer
 		Target t = default(Target);
 		t = _Targets.Pop();
 		
-		row = System.Convert.ToInt32(t.ShotAt.Row);
-		column = System.Convert.ToInt32(t.ShotAt.Column);
+		row = t.ShotAt.Row;
+		column = t.ShotAt.Column;
 		_CurrentTarget = t;
 	}
 	
@@ -159,8 +162,8 @@ public class AIHardPlayer : AIPlayer
 	/// <param name="column">the generated column</param>
 	private void SearchCoords(ref int row, ref int column)
 	{
-		row = System.Convert.ToInt32(_Random.Next(0, EnemyGrid.Height));
-		column = System.Convert.ToInt32(_Random.Next(0, EnemyGrid.Width));
+		row = _Random.Next(0, EnemyGrid.Height);
+		column = _Random.Next(0, EnemyGrid.Width);
 		_CurrentTarget = new Target(new Location(row, column), null);
 	}
 	
@@ -328,12 +331,12 @@ public class AIHardPlayer : AIPlayer
 		//if the ship is lying on the same row, call MoveToTopOfStack to optimise on the row
 		if (_CurrentTarget.SameRow)
 		{
-			MoveToTopOfStack(System.Convert.ToInt32(_CurrentTarget.ShotAt.Row), -1);
+			MoveToTopOfStack(_CurrentTarget.ShotAt.Row, -1);
 		}
 		else if (_CurrentTarget.SameColumn)
 		{
 			//else if the ship is lying on the same column, call MoveToTopOfStack to optimise on the column
-			MoveToTopOfStack(-1, System.Convert.ToInt32(_CurrentTarget.ShotAt.Column));
+			MoveToTopOfStack(-1, _CurrentTarget.ShotAt.Column);
 		}
 	}
 	
@@ -385,7 +388,7 @@ public class AIHardPlayer : AIPlayer
 	private void AddTarget(int row, int column)
 	{
 		
-		if (row >= 0 && column >= 0 && row < EnemyGrid.Height && column < EnemyGrid.Width && EnemyGrid.Item(row, column) == TileView.Sea)
+		if (row >= 0 && column >= 0 && row < EnemyGrid.Height && column < EnemyGrid.Width && EnemyGrid[row, column] == TileView.Sea)
 		{
 			
 			_Targets.Push(new Target(new Location(row, column), _CurrentTarget.ShotAt));

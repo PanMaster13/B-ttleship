@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 /// <summary>
 /// The SeaGrid is the grid upon which the ships are deployed.
 /// </summary>
@@ -19,7 +22,7 @@ public class SeaGrid : ISeaGrid
 	/// <summary>
 	/// The sea grid has changed and should be redrawn.
 	/// </summary>
-	public event ISeaGrid.EventHandler Changed;
+	public event EventHandler Changed;
 	
 	/// <summary>
 	/// The width of the sea grid.
@@ -137,13 +140,13 @@ public class SeaGrid : ISeaGrid
 	{
 		try
 		{
-			int size = System.Convert.ToInt32(newShip.Size);
+			int size = newShip.Size;
 			int currentRow = row;
 			int currentCol = col;
 			int dRow = 0;
 			int dCol = 0;
 			
-			if (direction == direction.LeftRight)
+			if (direction == Direction.LeftRight)
 			{
 				dRow = 0;
 				dCol = 1;
@@ -198,7 +201,7 @@ public class SeaGrid : ISeaGrid
 			//tile is already hit
 			if (_GameTiles[row, col].Shot)
 			{
-				return new AttackResult(ResultOfAttack.ShotAlready, "have already attacked [" + System.Convert.ToString(col) + "," + System.Convert.ToString(row) + "]!", row, col);
+				return new AttackResult(ResultOfAttack.ShotAlready, "have already attacked [" + (col) + "," + (row) + "]!", row, col);
 			}
 			
 			_GameTiles[row, col].Shoot();

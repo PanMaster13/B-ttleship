@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 /// <summary>
 /// A Ship has all the details about itself. For example the shipname,
 /// size, number of hits taken and the location. Its able to add tiles,
@@ -96,7 +99,7 @@ public class Ship
 		_tiles = new List<Tile>();
 		
 		//gets the ship size from the enumarator
-		_sizeOfShip = _shipName;
+		_sizeOfShip = (int)_shipName;
 	}
 	
 	/// <summary>
@@ -115,7 +118,7 @@ public class Ship
 	{
 		foreach (Tile tile in _tiles)
 		{
-			Tile.ClearShip();
+			tile.ClearShip();
 		}
 		_tiles.Clear();
 	}

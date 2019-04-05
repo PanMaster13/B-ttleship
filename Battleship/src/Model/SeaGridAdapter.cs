@@ -1,3 +1,5 @@
+using System;
+
 /// <summary>
 /// The SeaGridAdapter allows for the change in a sea grid view. Whenever a ship is
 /// presented it changes the view into a sea tile instead of a ship tile.
@@ -24,7 +26,7 @@ public class SeaGridAdapter : ISeaGrid
 	/// <param name="e">what needs to be redrawn</param>
 	private void MyGrid_Changed(object sender, EventArgs e)
 	{
-		Changed(this, e);
+		Changed?.Invoke(this, e);
 	}
 	
 #region ISeaGrid Members
@@ -39,7 +41,7 @@ public class SeaGridAdapter : ISeaGrid
 	{
 		get
 		{
-			TileView result = _MyGrid.Item(x, y);
+			TileView result = _MyGrid[x, y];
 			
 			if (result == TileView.Ship)
 			{
@@ -55,7 +57,7 @@ public class SeaGridAdapter : ISeaGrid
 	/// <summary>
 	/// Indicates that the grid has been changed
 	/// </summary>
-	public event ISeaGrid.EventHandler Changed;
+	public event EventHandler Changed;
 	
 	/// <summary>
 	/// Get the width of a tile

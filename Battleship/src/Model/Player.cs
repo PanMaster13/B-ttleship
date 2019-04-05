@@ -1,20 +1,25 @@
+using System.Collections.Generic;
+using System.Collections;
+using System;
+
 /// <summary>
 /// Player has its own _PlayerGrid, and can see an _EnemyGrid, it can also check if
 /// all ships are deployed and if all ships are detroyed. A Player can also attach.
 /// </summary>
-public class Player : IEnumerable<Ship>
+
+public class Player : IEnumerable
 {
 	protected static Random _Random = new Random();
-	
+
 	private Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
 	private SeaGrid _playerGrid; // VBConversions Note: Initial value cannot be assigned here since it is non-static.  Assignment has been moved to the class constructors.
 	private ISeaGrid _enemyGrid;
 	protected BattleShipsGame _game;
-	
+
 	private int _shots;
 	private int _hits;
 	private int _misses;
-	
+
 	/// <summary>
 	/// Returns the game that the player is part of.
 	/// </summary>
@@ -31,7 +36,7 @@ public class Player : IEnumerable<Ship>
 			_game = value;
 		}
 	}
-	
+
 	/// <summary>
 	/// Sets the grid of the enemy player
 	/// </summary>
@@ -43,14 +48,14 @@ public class Player : IEnumerable<Ship>
 			_enemyGrid = value;
 		}
 	}
-	
+
 	public Player(BattleShipsGame controller)
 	{
 		// VBConversions Note: Non-static class variable initialization is below.  Class variables cannot be initially assigned non-static values in C#.
 		_playerGrid = new SeaGrid(_Ships);
-		
+
 		_game = controller;
-		
+
 		//for each ship add the ships name so the seagrid knows about them
 		foreach (ShipName name in Enum.GetValues(typeof(ShipName)))
 		{
@@ -59,10 +64,9 @@ public class Player : IEnumerable<Ship>
 				_Ships.Add(name, new Ship(name));
 			}
 		}
-		
 		RandomizeDeployment();
 	}
-	
+
 	/// <summary>
 	/// The EnemyGrid is a ISeaGrid because you shouldn't be allowed to see the enemies ships
 	/// </summary>
@@ -77,7 +81,7 @@ public class Player : IEnumerable<Ship>
 			_enemyGrid = value;
 		}
 	}
-	
+
 	/// <summary>
 	/// The PlayerGrid is just a normal SeaGrid where the players ships can be deployed and seen
 	/// </summary>
@@ -88,7 +92,7 @@ public class Player : IEnumerable<Ship>
 			return _playerGrid;
 		}
 	}
-	
+
 	/// <summary>
 	/// ReadyToDeploy returns true if all ships are deployed
 	/// </summary>
@@ -99,7 +103,7 @@ public class Player : IEnumerable<Ship>
 			return _playerGrid.AllDeployed;
 		}
 	}
-	
+
 	public bool IsDestroyed
 	{
 		get
@@ -108,7 +112,7 @@ public class Player : IEnumerable<Ship>
 			return _playerGrid.ShipsKilled == Enum.GetValues(typeof(ShipName)).Length - 1;
 		}
 	}
-	
+
 	/// <summary>
 	/// Returns the Player's ship with the given name.
 	/// </summary>
@@ -122,10 +126,10 @@ public class Player : IEnumerable<Ship>
 		{
 			return null;
 		}
-		
-		return _Ships.Item(name);
+
+		return _Ships[name];
 	}
-	
+
 	/// <summary>
 	/// The number of shots the player has made
 	/// </summary>
@@ -138,7 +142,7 @@ public class Player : IEnumerable<Ship>
 			return _shots;
 		}
 	}
-	
+
 	public int Hits
 	{
 		get
@@ -146,7 +150,7 @@ public class Player : IEnumerable<Ship>
 			return _hits;
 		}
 	}
-	
+
 	/// <summary>
 	/// Total number of shots that missed
 	/// </summary>
@@ -159,7 +163,7 @@ public class Player : IEnumerable<Ship>
 			return _misses;
 		}
 	}
-	
+
 	public int Score
 	{
 		get
@@ -174,7 +178,7 @@ public class Player : IEnumerable<Ship>
 			}
 		}
 	}
-	
+
 	/// <summary>
 	/// Makes it possible to enumerate over the ships the player
 	/// has.
@@ -182,19 +186,19 @@ public class Player : IEnumerable<Ship>
 	/// <returns>A Ship enumerator</returns>
 	public IEnumerator<Ship> GetEnumerator()
 	{
-		return this.GetShipEnumerator();
+		return GetShipEnumerator();
 	}
-	
+
 	public IEnumerator<Ship> GetShipEnumerator()
 	{
 		Ship[] result = new Ship[_Ships.Values.Count + 1];
 		_Ships.Values.CopyTo(result, 0);
 		List<Ship> lst = new List<Ship>();
 		lst.AddRange(result);
-		
+
 		return lst.GetEnumerator();
 	}
-	
+
 	/// <summary>
 	/// Makes it possible to enumerate over the ships the player
 	/// has.
@@ -202,19 +206,19 @@ public class Player : IEnumerable<Ship>
 	/// <returns>A Ship enumerator</returns>
 	IEnumerator IEnumerable.GetEnumerator()
 	{
-		return this.GetEnumerator1();
+		return GetEnumerator1();
 	}
-	
+
 	public IEnumerator GetEnumerator1()
 	{
 		Ship[] result = new Ship[_Ships.Values.Count + 1];
 		_Ships.Values.CopyTo(result, 0);
 		List<Ship> lst = new List<Ship>();
 		lst.AddRange(result);
-		
+
 		return lst.GetEnumerator();
 	}
-	
+
 	/// <summary>
 	/// Vitual Attack allows the player to shoot
 	/// </summary>
@@ -223,7 +227,7 @@ public class Player : IEnumerable<Ship>
 		//human does nothing here...
 		return null;
 	}
-	
+
 	/// <summary>
 	/// Shoot at a given row/column
 	/// </summary>
@@ -235,7 +239,7 @@ public class Player : IEnumerable<Ship>
 		_shots++;
 		AttackResult result = default(AttackResult);
 		result = EnemyGrid.HitTile(row, col);
-		
+
 		if ((result.Value == ResultOfAttack.Destroyed) || (result.Value == ResultOfAttack.Hit))
 		{
 			_hits++;
@@ -244,34 +248,34 @@ public class Player : IEnumerable<Ship>
 		{
 			_misses++;
 		}
-		
+
 		return result;
 	}
-	
+
 	public virtual void RandomizeDeployment()
 	{
 		bool placementSuccessful = false;
 		Direction heading = default(Direction);
-		
+
 		//for each ship to deploy in shipist
 		foreach (ShipName shipToPlace in Enum.GetValues(typeof(ShipName)))
 		{
-			
+
 			if (shipToPlace == ShipName.None)
 			{
 				continue;
 			}
-			
+
 			placementSuccessful = false;
-			
+
 			//generate random position until the ship can be placed
 			do
 			{
-				int dir = System.Convert.ToInt32(_Random.Next(2));
-				int x = System.Convert.ToInt32(_Random.Next(0, 11));
-				int y = System.Convert.ToInt32(_Random.Next(0, 11));
-				
-				
+				int dir = _Random.Next(2);
+				int x = _Random.Next(0, 11);
+				int y = _Random.Next(0, 11);
+
+
 				if (dir == 0)
 				{
 					heading = Direction.UpDown;
@@ -280,7 +284,7 @@ public class Player : IEnumerable<Ship>
 				{
 					heading = Direction.LeftRight;
 				}
-				
+
 				//try to place ship, if position unplaceable, generate new coordinates
 				try
 				{

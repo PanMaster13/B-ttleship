@@ -1,3 +1,4 @@
+using System;
 /// <summary>
 /// The BattleShipsGame controls a big part of the game. It will add the two players
 /// to the game and make sure that both players ships are all deployed before starting the game.
@@ -59,7 +60,7 @@ public class BattleShipsGame
 		}
 		else
 		{
-			throw (new ApplicationException("You cannot add another player, the game already has two players."));
+			throw new ApplicationException("You cannot add another player, the game already has two players.");
 		}
 	}
 	

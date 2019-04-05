@@ -1,3 +1,5 @@
+using System;
+
 /// <summary>
 /// Tile knows its location on the grid, if it is a ship and if it has been
 /// shot before
@@ -73,7 +75,7 @@ public class Tile
 			}
 			else
 			{
-				throw (new InvalidOperationException("There is already a ship at [" + System.Convert.ToString(Row) + ", " + System.Convert.ToString(Column) + "]"));
+				throw new InvalidOperationException("There is already a ship at [" + (Row) + ", " + (Column) + "]");
 			}
 		}
 	}
