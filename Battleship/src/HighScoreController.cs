@@ -16,7 +16,7 @@ public static class HighScoreController
 	private const int SCORES_LEFT = 490;
 	
 	/// <summary>
-	/// The score structure is used to keep the name and
+	/// The score struct is used to keep the name and
 	/// score of the top players together.
 	/// </summary>
 	private struct Score : IComparable
@@ -153,7 +153,6 @@ public static class HighScoreController
 	/// <summary>
 	/// Handles the user input during the top score screen.
 	/// </summary>
-	/// <remarks></remarks>
 	public static void HandleHighScoreInput()
 	{
 		if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE) || SwinGame.KeyTyped(KeyCode.vk_RETURN))

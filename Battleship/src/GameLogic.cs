@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using SwinGameSDK;
 
+/// <summary>
+/// GameLogic handles the logic of the game.
+/// </summary>
 static class GameLogic
 {
 	public static void Main()
