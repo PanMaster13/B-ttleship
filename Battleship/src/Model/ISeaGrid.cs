@@ -5,9 +5,16 @@ using System;
 /// </summary>
 public interface ISeaGrid
 {
-	
+	/// <summary>
+	/// Gets the width.
+	/// </summary>
+	/// <value>The width.</value>
 	int Width {get;}
-	
+
+	/// <summary>
+	/// Gets the height.
+	/// </summary>
+	/// <value>The height.</value>
 	int Height {get;}
 	
 	/// <summary>
@@ -16,19 +23,19 @@ public interface ISeaGrid
 	// Event Changed As EventHandler VBConversions Warning: events in interfaces not supported in C#.
 	
 	/// <summary>
-	/// Provides access to the given row/column
+	/// Provides access to the given row/column.
 	/// </summary>
-	/// <param name="row">the row to access</param>
-	/// <param name="column">the column to access</param>
-	/// <value>what the player can see at that location</value>
-	/// <returns>what the player can see at that location</returns>
+	/// <param name="row">The row to access.</param>
+	/// <param name="column">The column to access.</param>
+	/// <value>What the player can see at that location.</value>
+	/// <returns>What the player can see at that location.</returns>
 	TileView this[int row, int column]{ get; }
 	
 	/// <summary>
 	/// Mark the indicated tile as shot.
 	/// </summary>
-	/// <param name="row">the row of the tile</param>
-	/// <param name="col">the column of the tile</param>
-	/// <returns>the result of the attack</returns>
+	/// <param name="row">The row of the tile.</param>
+	/// <param name="col">The column of the tile.</param>
+	/// <returns>The result of the attack.</returns>
 	AttackResult HitTile(int row, int col);
 }

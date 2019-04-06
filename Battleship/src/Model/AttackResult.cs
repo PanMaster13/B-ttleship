@@ -10,10 +10,10 @@ public class AttackResult
 	private int _Column;
 	
 	/// <summary>
-	/// The result of the attack
+	/// The result of the attack.
 	/// </summary>
-	/// <value>The result of the attack</value>
-	/// <returns>The result of the attack</returns>
+	/// <value>The result of the attack.</value>
+	/// <returns>The result of the attack.</returns>
 	public ResultOfAttack Value
 	{
 		get
@@ -23,10 +23,10 @@ public class AttackResult
 	}
 	
 	/// <summary>
-	/// The ship, if any, involved in this result
+	/// The ship, if any, involved in this result.
 	/// </summary>
-	/// <value>The ship, if any, involved in this result</value>
-	/// <returns>The ship, if any, involved in this result</returns>
+	/// <value>The ship, if any, involved in this result.</value>
+	/// <returns>The ship, if any, involved in this result.</returns>
 	public Ship Ship
 	{
 		get
@@ -50,7 +50,7 @@ public class AttackResult
 	}
 	
 	/// <summary>
-	/// The row where the attack occurred
+	/// The row where the attack occurred.
 	/// </summary>
 	public int Row
 	{
@@ -61,7 +61,7 @@ public class AttackResult
 	}
 	
 	/// <summary>
-	/// The column where the attack occurred
+	/// The column where the attack occurred.
 	/// </summary>
 	public int Column
 	{
@@ -72,9 +72,9 @@ public class AttackResult
 	}
 	
 	/// <summary>
-	/// Set the _Value to the PossibleAttack value
+	/// Set the _Value to the PossibleAttack value.
 	/// </summary>
-	/// <param name="value">either hit, miss, destroyed, shotalready</param>
+	/// <param name="value">Either hit, miss, destroyed, shot already.</param>
 	public AttackResult(ResultOfAttack value, string text, int row, int column)
 	{
 		_Value = value;
@@ -85,19 +85,19 @@ public class AttackResult
 	}
 	
 	/// <summary>
-	/// Set the _Value to the PossibleAttack value, and the _Ship to the ship
+	/// Set the _Value to the PossibleAttack value, and the _Ship to the ship.
 	/// </summary>
-	/// <param name="value">either hit, miss, destroyed, shotalready</param>
-	/// <param name="ship">the ship information</param>
+	/// <param name="value">Either hit, miss, destroyed, shot already.</param>
+	/// <param name="ship">The ship information.</param>
 	public AttackResult(ResultOfAttack value, Ship ship, string text, int row, int column) : this(value, text, row, column)
 	{
 		_Ship = ship;
 	}
 	
 	/// <summary>
-	/// Displays the textual information about the attack
+	/// Displays the textual information about the attack.
 	/// </summary>
-	/// <returns>The textual information about the attack</returns>
+	/// <returns>The textual information about the attack.</returns>
 	public override string ToString()
 	{
 		if (ReferenceEquals(_Ship, null))

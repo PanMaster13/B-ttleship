@@ -12,8 +12,8 @@ public class BattleShipsGame
 	/// The attack delegate type is used to send notifications of the end of an
 	/// attack by a player or the AI.
 	/// </summary>
-	/// <param name="sender">the game sending the notification</param>
-	/// <param name="result">the result of the attack</param>
+	/// <param name="sender">The game sending the notification.</param>
+	/// <param name="result">The result of the attack.</param>
 	public delegate void AttackCompletedHandler(object sender, AttackResult result);
 	
 	/// <summary>
@@ -31,9 +31,9 @@ public class BattleShipsGame
 	/// <summary>
 	/// The current player.
 	/// </summary>
-	/// <value>The current player</value>
-	/// <returns>The current player</returns>
-	/// <remarks>This value will switch between the two players as they have their attacks</remarks>
+	/// <value>The current player.</value>
+	/// <returns>The current player.</returns>
+	/// <remarks>This value will switch between the two players as they have their attacks.</remarks>
 	public Player Player
 	{
 		get
@@ -44,7 +44,7 @@ public class BattleShipsGame
 	
 	/// <summary>
 	/// AddDeployedPlayer adds both players and will make sure
-	/// that the AI player deploys all ships
+	/// that the AI player deploys all ships.
 	/// </summary>
 	/// <param name="p"></param>
 	public void AddDeployedPlayer(Player p)
@@ -78,9 +78,9 @@ public class BattleShipsGame
 	/// Shoot will swap between players and check if a player has been killed.
 	/// It also allows the current player to hit on the enemygrid.
 	/// </summary>
-	/// <param name="row">the row fired upon</param>
-	/// <param name="col">the column fired upon</param>
-	/// <returns>The result of the attack</returns>
+	/// <param name="row">The row fired upon.</param>
+	/// <param name="col">The column fired upon.</param>
+	/// <returns>The result of the attack.</returns>
 	public AttackResult Shoot(int row, int col)
 	{
 		AttackResult newAttack = default(AttackResult);
@@ -88,7 +88,7 @@ public class BattleShipsGame
 		
 		newAttack = Player.Shoot(row, col);
 		
-		//Will exit the game when all players ships are destroyed
+		// Will exit the game when all players ships are destroyed.
 		if (_players[otherPlayer].IsDestroyed)
 		{
 			newAttack = new AttackResult(ResultOfAttack.GameOver, newAttack.Ship, newAttack.Text, row, col);
@@ -97,7 +97,7 @@ public class BattleShipsGame
 		if (AttackCompletedEvent != null)
 			AttackCompletedEvent(this, newAttack);
 		
-		//change player if the last hit was a miss
+		// Change player if the last hit was a miss.
 		if (newAttack.Value == ResultOfAttack.Miss)
 		{
 			_playerIndex = otherPlayer;
