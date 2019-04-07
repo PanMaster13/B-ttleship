@@ -164,7 +164,7 @@ public static class HighScoreController
 	/// <summary>
 	/// Read the user's name for their highsSwinGame.
 	/// </summary>
-	/// <param name="value">the player's sSwinGame.</param>
+	/// <param name="value">the player's SwinGame.</param>
 	/// <remarks>
 	/// This verifies if the score is a highsSwinGame.
 	/// </remarks>
