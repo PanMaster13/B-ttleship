@@ -5,7 +5,7 @@ using SwinGameSDK;
 ///<summary>
 ///EndingGameController is responsible for managing the interactions at the end of a game.
 /// </summary>
-static class EndingGameController
+public static class EndingGameController
 {
 
     ///<summary>

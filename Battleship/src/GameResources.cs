@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// The GameResources class stores all of the Games Media Resources, such as Images, Fonts
 /// Sounds, Music.
 /// </summary>
-public sealed class GameResources
+public static class GameResources
 {
 	/// <summary>
     /// LoadFonts loads the fonts used in the game.
