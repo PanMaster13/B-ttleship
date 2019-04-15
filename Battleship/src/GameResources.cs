@@ -26,7 +26,7 @@ public static class GameResources
 		//Back Button
 		NewImage("Back", "back-icon.png");
 		//Backgrounds
-		NewImage("Menu", "main_page.jpg");
+		NewImage("Menu", "main_menu.jpg");
 		NewImage("Discovery", "discover.jpg");
 		NewImage("Deploy", "deploy.jpg");
 		
@@ -57,7 +57,7 @@ public static class GameResources
 	private static void LoadSounds()
 	{
         NewSound("Error", "error.wav");
-		NewSound("Hit", "hit.wav");
+		NewSound("Hit", "hit.mp3");
 		NewSound("Sink", "sink.wav");
 		NewSound("Siren", "siren.wav");
 		NewSound("Miss", "watershot.wav");
