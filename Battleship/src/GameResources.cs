@@ -29,7 +29,7 @@ public static class GameResources
 		NewImage("Menu", "main_menu.jpg");
 		NewImage("Discovery", "discover.jpg");
 		NewImage("Deploy", "deploy.jpg");
-		
+
 		//Deployment
 		NewImage("LeftRightButton", "deploy_dir_button_horiz.png");
 		NewImage("UpDownButton", "deploy_dir_button_vert.png");
