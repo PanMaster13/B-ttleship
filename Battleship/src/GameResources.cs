@@ -54,14 +54,17 @@ public sealed class GameResources
     /// </summary>
 	private static void LoadSounds()
 	{
-		NewSound("Error", "error.wav");
+        NewSound("Error", "error.wav");
 		NewSound("Hit", "hit.wav");
 		NewSound("Sink", "sink.wav");
 		NewSound("Siren", "siren.wav");
 		NewSound("Miss", "watershot.wav");
 		NewSound("Winner", "winner.wav");
 		NewSound("Lose", "lose.wav");
-	}
+        NewSound("Easy", "easy.wav");
+        NewSound("Medium", "medium.wav");
+        NewSound("Hard", "hard.wav");
+    }
 	
     /// <summary>
     /// LoadMusic loads the music used in the game.

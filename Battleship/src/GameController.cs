@@ -175,9 +175,9 @@ public static class GameController
     ///<param name="result">The result of the attack.</param>
     private static void AttackCompleted(object sender, AttackResult result)
     {
-        bool isHuman;
-        isHuman = _theGame.Player == HumanPlayer;
+        bool isHuman = _theGame.Player == HumanPlayer;
 
+        
         if (isHuman)
             UtilityFunctions.Message = "You " + result;
         else
@@ -256,7 +256,7 @@ public static class GameController
     {
         AttackResult result;
         result = _theGame.Shoot(row, col);
-		AttackCompleted(_theGame, result);
+        AttackCompleted(_theGame, result);
         CheckAttackResult(result);
     }
 

@@ -20,7 +20,7 @@ public static class MenuController
 		new string[] {"RETURN", "SURRENDER", "QUIT"}, 
 		new string[] {"EASY", "MEDIUM", "HARD"}};
 	
-	private const int MENU_TOP = 575;
+	private const int MENU_TOP = 550;
 	private const int MENU_LEFT = 30;
 	private const int MENU_GAP = 0;
 	private const int BUTTON_WIDTH = 75;
@@ -289,15 +289,18 @@ public static class MenuController
 			// Sets difficulty to easy.
 			case SETUP_MENU_EASY_BUTTON: 
 				GameController.SetDifficulty(AIOption.Hard);
+                Audio.PlaySoundEffect(GameResources.GameSound("Easy"));
 				break;
 				// Sets difficulty to medium.
 			case SETUP_MENU_MEDIUM_BUTTON: 
 				GameController.SetDifficulty(AIOption.Hard);
-				break;
+                Audio.PlaySoundEffect(GameResources.GameSound("Medium"));
+                break;
 				// Sets difficulty to hard.
 			case SETUP_MENU_HARD_BUTTON: 
 				GameController.SetDifficulty(AIOption.Hard);
-				break;
+                Audio.PlaySoundEffect(GameResources.GameSound("Hard"));
+                break;
 		}
 		// Always end state - handles exit button as well.
 		GameController.EndCurrentState();
