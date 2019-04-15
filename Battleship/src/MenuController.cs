@@ -16,7 +16,7 @@ public static class MenuController
 	/// <remarks>
 	/// These are the text captions for the menu items.
 	/// </remarks>
-	private readonly static string[][] _menuStructure = {new string[] {"PLAY", "SETUP", "SCORES", "QUIT"}, 
+	private readonly static string[][] _menuStructure = {new string[] {"PLAY", "DIFFICULTY", "SCORES", "QUIT"}, 
 		new string[] {"RETURN", "SURRENDER", "QUIT"}, 
 		new string[] {"EASY", "MEDIUM", "HARD"}};
 	
@@ -30,17 +30,17 @@ public static class MenuController
 	
 	private const int MAIN_MENU = 0;
 	private const int GAME_MENU = 1;
-	private const int SETUP_MENU = 2;
+	private const int DIFFICULTY_MENU = 2;
 	
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
 	private const int MAIN_MENU_QUIT_BUTTON = 3;
 	
-	private const int SETUP_MENU_EASY_BUTTON = 0;
-	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
-	private const int SETUP_MENU_HARD_BUTTON = 2;
-	private const int SETUP_MENU_EXIT_BUTTON = 3;
+	private const int DIFFICULTY_MENU_EASY_BUTTON = 0;
+	private const int DIFFICULTY_MENU_MEDIUM_BUTTON = 1;
+	private const int DIFFICULTY_MENU_HARD_BUTTON = 2;
+	private const int DIFFICULTY_MENU_EXIT_BUTTON = 3;
 	
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
@@ -60,10 +60,10 @@ public static class MenuController
 	/// <summary>
 	/// Handles the processing of user input when the main menu is showing.
 	/// </summary>
-	public static void HandleSetupMenuInput()
+	public static void HandleDifficultyMenuInput()
 	{
 		bool handled = false;
-		handled = HandleMenuInput(SETUP_MENU, 1, 1);
+		handled = HandleMenuInput(DIFFICULTY_MENU, 1, 1);
 		
 		if (!handled)
 		{
@@ -156,7 +156,7 @@ public static class MenuController
 		// SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50).
 		
 		DrawButtons(MAIN_MENU);
-		DrawButtons(SETUP_MENU, 1, 1);
+		DrawButtons(DIFFICULTY_MENU, 1, 1);
 	}
 	
 	/// <summary>
@@ -238,9 +238,9 @@ public static class MenuController
 			case MAIN_MENU: 
 				PerformMainMenuAction(button);
 				break;
-				// If setup menu button is pressed.
-			case SETUP_MENU: 
-				PerformSetupMenuAction(button);
+				// If difficulty menu button is pressed.
+			case DIFFICULTY_MENU: 
+				PerformDifficultyMenuAction(button);
 				break;
 				// If game menu button is pressed.
 			case GAME_MENU: 
@@ -278,24 +278,24 @@ public static class MenuController
 	}
 	
 	/// <summary>
-	/// The setup menu was clicked, perform the button's action.
+	/// The difficulty menu was clicked, perform the button's action.
 	/// </summary>
 	/// <param name="button">The button pressed.</param>
-	private static void PerformSetupMenuAction(int button)
+	private static void PerformDifficultyMenuAction(int button)
 	{
 		// A switch case involving buttons in the setup menu.
 		switch (button)
 		{
 			// Sets difficulty to easy.
-			case SETUP_MENU_EASY_BUTTON: 
+			case DIFFICULTY_MENU_EASY_BUTTON: 
 				GameController.SetDifficulty(AIOption.Hard);
 				break;
 				// Sets difficulty to medium.
-			case SETUP_MENU_MEDIUM_BUTTON: 
+			case DIFFICULTY_MENU_MEDIUM_BUTTON: 
 				GameController.SetDifficulty(AIOption.Hard);
 				break;
 				// Sets difficulty to hard.
-			case SETUP_MENU_HARD_BUTTON: 
+			case DIFFICULTY_MENU_HARD_BUTTON: 
 				GameController.SetDifficulty(AIOption.Hard);
 				break;
 		}

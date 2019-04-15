@@ -122,7 +122,10 @@ public static class HighScoreController
 		const int SCORES_HEADING = 40;
 		const int SCORES_TOP = 80;
 		const int SCORE_GAP = 30;
-		
+
+		//Draw back button
+		SwinGame.DrawBitmap(GameResources.GameImage("Back"), 8, 8);
+
 		if (_Scores.Count == 0)
 		{
 			LoadScores();
@@ -155,9 +158,14 @@ public static class HighScoreController
 	/// </summary>
 	public static void HandleHighScoreInput()
 	{
-		if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE) || SwinGame.KeyTyped(KeyCode.vk_RETURN))
+		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE) || SwinGame.KeyTyped(KeyCode.vk_RETURN))
 		{
 			GameController.EndCurrentState();
+		}
+		else if (SwinGame.MouseClicked(MouseButton.LeftButton))
+		{
+			if (UtilityFunctions.IsMouseInRectangle(8, 8, 48, 48))
+				GameController.AddNewState(GameState.ViewingMainMenu);
 		}
 	}
 	

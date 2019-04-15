@@ -40,7 +40,7 @@ public static class DeploymentController
     public static void HandleDeploymentInput()
     {
 		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
-            GameController.AddNewState(GameState.ViewingGameMenu);
+            GameController.AddNewState(GameState.ViewingMainMenu);
 
         if (SwinGame.KeyTyped(KeyCode.vk_UP) | SwinGame.KeyTyped(KeyCode.vk_DOWN))
             _currentDirection = Direction.UpDown;
@@ -59,14 +59,16 @@ public static class DeploymentController
             else
                 DoDeployClick();
 
-            if (GameController.HumanPlayer.ReadyToDeploy & UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
-                GameController.EndDeployment();
-            else if (UtilityFunctions.IsMouseInRectangle(UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
-                _currentDirection = Direction.LeftRight;
-            else if (UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
-                _currentDirection = Direction.LeftRight;
-            else if (UtilityFunctions.IsMouseInRectangle(RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP, RANDOM_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
-                GameController.HumanPlayer.RandomizeDeployment();
+			if (GameController.HumanPlayer.ReadyToDeploy & UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
+				GameController.EndDeployment();
+			else if (UtilityFunctions.IsMouseInRectangle(UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
+				_currentDirection = Direction.UpDown;
+			else if (UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
+				_currentDirection = Direction.LeftRight;
+			else if (UtilityFunctions.IsMouseInRectangle(RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP, RANDOM_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
+				GameController.HumanPlayer.RandomizeDeployment();
+			else if (UtilityFunctions.IsMouseInRectangle(8, 8, 48, 48))
+				GameController.AddNewState(GameState.ViewingMainMenu);
         }
     }
 
@@ -113,6 +115,9 @@ public static class DeploymentController
     public static void DrawDeployment()
     {
         UtilityFunctions.DrawField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer, true);
+
+		//Draw back button
+		SwinGame.DrawBitmap(GameResources.GameImage("Back"), 8, 8);
 
         // Draw the Left/Right and Up/Down buttons
         if (_currentDirection == Direction.LeftRight)

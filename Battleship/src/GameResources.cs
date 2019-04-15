@@ -23,6 +23,8 @@ public static class GameResources
     /// </summary>
 	private static void LoadImages()
 	{
+		//Back Button
+		NewImage("Back", "back-icon.png");
 		//Backgrounds
 		NewImage("Menu", "main_page.jpg");
 		NewImage("Discovery", "discover.jpg");
@@ -68,7 +70,7 @@ public static class GameResources
     /// </summary>
 	private static void LoadMusic()
 	{
-		NewMusic("Background", "horrordrone.mp3");
+		NewMusic("Background", "mainMenuMusic.mp3");
 	}
 	
 	/// <summary>
