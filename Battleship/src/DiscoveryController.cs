@@ -53,6 +53,7 @@ public static class DiscoveryController
         const int SHOTS_TOP = 157;
         const int HITS_TOP = 206;
         const int SPLASH_TOP = 256;
+		const int SHIPS_LEFT = 306;
 
         if ((SwinGame.KeyDown(KeyCode.vk_LSHIFT) | SwinGame.KeyDown(KeyCode.vk_RSHIFT)) & SwinGame.KeyDown(KeyCode.vk_c))
             UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, true);
@@ -65,5 +66,6 @@ public static class DiscoveryController
         SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
         SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
         SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
+		SwinGame.DrawText("AI Ships Left:     "+ GameController.aiShipsLeft.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT-50, SHIPS_LEFT);
     }
 }

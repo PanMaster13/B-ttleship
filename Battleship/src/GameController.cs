@@ -12,6 +12,7 @@ public static class GameController
     private static Player _human;
 	private static AIPlayer _ai;
     private static Stack<GameState> _state = new Stack<GameState>();
+	private static int _humanShips, _aiShips = 5;
 
     private static AIOption _aiSetting;
 
@@ -55,6 +56,29 @@ public static class GameController
             return _ai;
         }
     }
+
+	public static int humanShipsLeft
+	{
+		get
+		{
+			return _humanShips;
+		}
+		set {
+			_humanShips = value;
+		}
+	}
+
+	public static int aiShipsLeft
+	{
+		get
+		{
+			return _aiShips;
+		}
+		set
+		{
+			_aiShips = value;
+		}
+	}
 
     static GameController()
     {
@@ -179,14 +203,7 @@ public static class GameController
     {
         bool isHuman;
         isHuman = _theGame.Player==HumanPlayer;
-        if (isHuman)
-        {
-            Console.WriteLine("Human");
-        }
-        else
-        {
-            Console.WriteLine("AI");
-        }
+
         if (isHuman)
         {
             UtilityFunctions.Message = "You " + result.ToString();
@@ -203,6 +220,14 @@ public static class GameController
                 {
                     PlayHitSequence(result.Row, result.Column, isHuman);
                     Audio.PlaySoundEffect(GameResources.GameSound("Sink"));
+					if (isHuman)
+					{
+						aiShipsLeft--;
+					}
+					else
+					{
+						humanShipsLeft--;
+					}
                     break;
                 }
 
@@ -274,7 +299,6 @@ public static class GameController
     {
         AttackResult result;
         result = _theGame.Shoot(row, col);
-        //AttackCompleted(_theGame, result);
         CheckAttackResult(result);
     }
 
@@ -288,7 +312,6 @@ public static class GameController
     {
         AttackResult result;
         result = _theGame.Player.Attack();
-        //AttackCompleted(_theGame, result);
         CheckAttackResult(result);
     }
 
