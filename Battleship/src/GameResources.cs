@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// The GameResources class stores all of the Games Media Resources, such as Images, Fonts
 /// Sounds, Music.
 /// </summary>
-public sealed class GameResources
+public static class GameResources
 {
 	/// <summary>
     /// LoadFonts loads the fonts used in the game.
@@ -23,6 +23,8 @@ public sealed class GameResources
     /// </summary>
 	private static void LoadImages()
 	{
+		//Back Button
+		NewImage("Back", "back-icon.png");
 		//Backgrounds
 		NewImage("Menu", "main_page.jpg");
 		NewImage("Discovery", "discover.jpg");
@@ -71,7 +73,7 @@ public sealed class GameResources
     /// </summary>
 	private static void LoadMusic()
 	{
-		NewMusic("Background", "horrordrone.mp3");
+		NewMusic("Background", "mainMenuMusic.mp3");
 	}
 	
 	/// <summary>

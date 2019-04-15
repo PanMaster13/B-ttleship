@@ -327,7 +327,7 @@ public static class GameController
 
             case GameState.AlteringSettings:
                 {
-                    MenuController.HandleSetupMenuInput();
+                    MenuController.HandleDifficultyMenuInput();
                     break;
                 }
 
