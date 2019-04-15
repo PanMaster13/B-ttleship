@@ -16,7 +16,7 @@ public static class GameResources
 		NewFont("Courier", "cour.ttf", 14);
 		NewFont("CourierSmall", "cour.ttf", 8);
 		NewFont("Menu", "ffaccess.ttf", 8);
-		NewFont("GameMenu", "star_jedi.tff", 8);
+		NewFont("GameMenu", "ffaccess.ttf", 10);
 	}
 	
     /// <summary>

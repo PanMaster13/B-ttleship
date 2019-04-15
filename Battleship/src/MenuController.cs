@@ -45,9 +45,9 @@ public static class MenuController
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
 	private const int GAME_MENU_QUIT_BUTTON = 2;
-	
-	private readonly static Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
-	private readonly static Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
+
+    private readonly static Color MENU_COLOR = SwinGame.RGBColor(255, 162, 0);
+    private readonly static Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
 	
 	/// <summary>
 	/// Handles the processing of user input when the main menu is showing.
@@ -192,7 +192,12 @@ public static class MenuController
 			// SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT).
 			if (menu == GAME_MENU)
 			{
-				SwinGame.DrawTextLines(_menuStructure[menu][i], SwinGame.RGBAColor(255,0,0,1) , Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+                SwinGame.DrawTextLines("Selecting 'Return' will bring you back to the battle.", MENU_COLOR, Color.Black, GameResources.GameFont("GameMenu"), FontAlignment.AlignLeft, 30, 450, 455, BUTTON_HEIGHT);
+                SwinGame.DrawTextLines("Selecting 'Surrender' will end the round.", MENU_COLOR, Color.Black, GameResources.GameFont("GameMenu"), FontAlignment.AlignLeft, 30, 475, 360, BUTTON_HEIGHT);
+                SwinGame.DrawTextLines("Selecting 'Quit' will end the game itself.", MENU_COLOR, Color.Black, GameResources.GameFont("GameMenu"), FontAlignment.AlignLeft, 30, 500, 360, BUTTON_HEIGHT);
+                SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR , Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+                //btnLeft will always be 30, 105, 180
+                //btnTop will always be 550
 			}
 			else
 			{

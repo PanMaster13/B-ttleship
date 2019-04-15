@@ -160,8 +160,6 @@
     <None Include="Resources\Resources\sounds\watershot.wav" />
     <None Include="Resources\Resources\sounds\winner.wav" />
     <None Include="Resources\images\main_menu.jpg" />
-    <None Include="Resources\sounds\hit.mp3" />
-    <None Include="Resources\fonts\star_jedi.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\DeploymentController.cs" />
