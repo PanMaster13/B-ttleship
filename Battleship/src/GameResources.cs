@@ -16,6 +16,7 @@ public static class GameResources
 		NewFont("Courier", "cour.ttf", 14);
 		NewFont("CourierSmall", "cour.ttf", 8);
 		NewFont("Menu", "ffaccess.ttf", 8);
+		NewFont("GameMenu", "star_jedi.tff", 8);
 	}
 	
     /// <summary>
@@ -26,10 +27,10 @@ public static class GameResources
 		//Back Button
 		NewImage("Back", "back-icon.png");
 		//Backgrounds
-		NewImage("Menu", "main_page.jpg");
+		NewImage("Menu", "main_menu.jpg");
 		NewImage("Discovery", "discover.jpg");
 		NewImage("Deploy", "deploy.jpg");
-		
+
 		//Deployment
 		NewImage("LeftRightButton", "deploy_dir_button_horiz.png");
 		NewImage("UpDownButton", "deploy_dir_button_vert.png");
@@ -57,7 +58,7 @@ public static class GameResources
 	private static void LoadSounds()
 	{
         NewSound("Error", "error.wav");
-		NewSound("Hit", "hit.wav");
+		NewSound("Hit", "hit.mp3");
 		NewSound("Sink", "sink.wav");
 		NewSound("Siren", "siren.wav");
 		NewSound("Miss", "watershot.wav");
