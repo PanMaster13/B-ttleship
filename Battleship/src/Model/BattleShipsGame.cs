@@ -49,11 +49,11 @@ public class BattleShipsGame
 	/// <param name="p"></param>
 	public void AddDeployedPlayer(Player p)
 	{
-		if (ReferenceEquals(_players[0], null))
+		if (_players[0]== null)
 		{
 			_players[0] = p;
 		}
-		else if (ReferenceEquals(_players[1], null))
+		else if (_players[1]==null)
 		{
 			_players[1] = p;
 			CompleteDeployment();
@@ -94,11 +94,10 @@ public class BattleShipsGame
 			newAttack = new AttackResult(ResultOfAttack.GameOver, newAttack.Ship, newAttack.Text, row, col);
 		}
 		
-		if (AttackCompletedEvent != null)
-			AttackCompletedEvent(this, newAttack);
-		
-		// Change player if the last hit was a miss.
-		if (newAttack.Value == ResultOfAttack.Miss)
+		if (AttackCompleted != null)
+			AttackCompleted(this, newAttack);
+        // Change player if the last hit was a miss.
+        if (newAttack.Value == ResultOfAttack.Miss)
 		{
 			_playerIndex = otherPlayer;
 		}

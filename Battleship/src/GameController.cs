@@ -143,8 +143,9 @@ public static class GameController
     private static void PlayHitSequence(int row, int column, bool showAnimation)
     {
         if (showAnimation)
+        {
             UtilityFunctions.AddExplosion(row, column);
-
+        }
         Audio.PlaySoundEffect(GameResources.GameSound("Hit"));
 
         UtilityFunctions.DrawAnimationSequence();
@@ -160,8 +161,9 @@ public static class GameController
     private static void PlayMissSequence(int row, int column, bool showAnimation)
     {
         if (showAnimation)
+        { 
             UtilityFunctions.AddSplash(row, column);
-
+        }
         Audio.PlaySoundEffect(GameResources.GameSound("Miss"));
 
         UtilityFunctions.DrawAnimationSequence();
@@ -175,13 +177,25 @@ public static class GameController
     ///<param name="result">The result of the attack.</param>
     private static void AttackCompleted(object sender, AttackResult result)
     {
-        bool isHuman = _theGame.Player == HumanPlayer;
-
-        
+        bool isHuman;
+        isHuman = _theGame.Player==HumanPlayer;
         if (isHuman)
-            UtilityFunctions.Message = "You " + result;
+        {
+            Console.WriteLine("Human");
+        }
         else
-            UtilityFunctions.Message = "The AI " + result;
+        {
+            Console.WriteLine("AI");
+        }
+        if (isHuman)
+        {
+            UtilityFunctions.Message = "You " + result.ToString();
+
+        }
+        else
+        {
+            UtilityFunctions.Message = "The AI " + result.ToString();
+        }
 
         switch (result.Value)
         {
@@ -203,11 +217,15 @@ public static class GameController
                         SwinGame.RefreshScreen();
                     }
 
-                    if (HumanPlayer.IsDestroyed)
+                    if (_human.IsDestroyed)
+                    {
                         Audio.PlaySoundEffect(GameResources.GameSound("Lose"));
+                    }
                     else
+                    {
                         Audio.PlaySoundEffect(GameResources.GameSound("Winner"));
-                    break;
+                    }
+                        break;
                 }
 
             case ResultOfAttack.Hit:
@@ -256,7 +274,7 @@ public static class GameController
     {
         AttackResult result;
         result = _theGame.Shoot(row, col);
-        AttackCompleted(_theGame, result);
+        //AttackCompleted(_theGame, result);
         CheckAttackResult(result);
     }
 
@@ -270,6 +288,7 @@ public static class GameController
     {
         AttackResult result;
         result = _theGame.Player.Attack();
+        //AttackCompleted(_theGame, result);
         CheckAttackResult(result);
     }
 
@@ -285,9 +304,11 @@ public static class GameController
         {
             case ResultOfAttack.Miss:
                 {
-                    if (_theGame.Player == ComputerPlayer)
+                    if (_theGame.Player==ComputerPlayer)
+                    {
                         AIAttack();
-                    break;
+                    }
+                        break;
                 }
 
             case ResultOfAttack.GameOver:
