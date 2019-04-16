@@ -300,12 +300,12 @@ public static class MenuController
 		{
 			// Sets difficulty to easy.
 			case DIFFICULTY_MENU_EASY_BUTTON: 
-				GameController.SetDifficulty(AIOption.Hard);
+				GameController.SetDifficulty(AIOption.Easy);
                 Audio.PlaySoundEffect(GameResources.GameSound("Easy"));
 				break;
 				// Sets difficulty to medium.
 			case DIFFICULTY_MENU_MEDIUM_BUTTON: 
-				GameController.SetDifficulty(AIOption.Hard);
+				GameController.SetDifficulty(AIOption.Medium);
                 Audio.PlaySoundEffect(GameResources.GameSound("Medium"));
                 break;
 				// Sets difficulty to hard.
