@@ -195,13 +195,13 @@ public static class MenuController
                 SwinGame.DrawTextLines("Selecting 'Return' will bring you back to the battle.", MENU_COLOR, Color.Black, GameResources.GameFont("GameMenu"), FontAlignment.AlignLeft, 30, 450, 455, BUTTON_HEIGHT);
                 SwinGame.DrawTextLines("Selecting 'Surrender' will end the round.", MENU_COLOR, Color.Black, GameResources.GameFont("GameMenu"), FontAlignment.AlignLeft, 30, 475, 360, BUTTON_HEIGHT);
                 SwinGame.DrawTextLines("Selecting 'Quit' will end the game itself.", MENU_COLOR, Color.Black, GameResources.GameFont("GameMenu"), FontAlignment.AlignLeft, 30, 500, 360, BUTTON_HEIGHT);
-                SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR , Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+                SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR , Color.Transparent, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
                 //btnLeft will always be 30, 105, 180
                 //btnTop will always be 550
 			}
 			else
 			{
-				SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+				SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Transparent, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
 			}
 			
 			if (SwinGame.MouseDown(MouseButton.LeftButton) && IsMouseOverMenu(i, level, xOffset))
