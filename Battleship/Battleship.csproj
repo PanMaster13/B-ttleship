@@ -160,12 +160,12 @@
     <None Include="Resources\Resources\sounds\watershot.wav" />
     <None Include="Resources\Resources\sounds\winner.wav" />
     <None Include="Resources\images\main_menu.jpg" />
+    <None Include="Resources\images\enddetailsback.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\DeploymentController.cs" />
     <Compile Include="src\DiscoveryController.cs" />
     <Compile Include="src\EndingGameController.cs" />
-    <Compile Include="src\GameController.cs" />
     <Compile Include="src\GameLogic.cs" />
     <Compile Include="src\GameResources.cs" />
     <Compile Include="src\GameState.cs" />
@@ -188,6 +188,7 @@
     <Compile Include="src\Model\ShipName.cs" />
     <Compile Include="src\Model\Tile.cs" />
     <Compile Include="src\Model\TileView.cs" />
+    <Compile Include="src\GameController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">

@@ -12,7 +12,7 @@ public static class GameController
     private static Player _human;
 	private static AIPlayer _ai;
     private static Stack<GameState> _state = new Stack<GameState>();
-	private static int _humanShips, _aiShips = 5;
+	private static int _humanShips, _aiShips;
 
     private static AIOption _aiSetting;
 
@@ -126,6 +126,8 @@ public static class GameController
         }
 
         _human = new Player(_theGame);
+		_aiShips = 5;
+		_humanShips = 5;
 
         // AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
         _ai.PlayerGrid.Changed += GridChanged;

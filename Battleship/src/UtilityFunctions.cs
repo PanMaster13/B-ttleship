@@ -257,7 +257,7 @@ public static class UtilityFunctions
 	public static void DrawBackground()
 	{
 		// If the player is at the Main menu screen or the Game menu screen or the Settings screen or the High scores screen.
-		if ((((GameController.CurrentState == GameState.ViewingMainMenu) || (GameController.CurrentState == GameState.ViewingGameMenu)) || (GameController.CurrentState == GameState.AlteringSettings)) || (GameController.CurrentState == GameState.ViewingHighScores))
+		if ((((GameController.CurrentState == GameState.ViewingMainMenu) || (GameController.CurrentState == GameState.ViewingGameMenu)) || (GameController.CurrentState == GameState.AlteringSettings)))
 		{
 			SwinGame.DrawBitmap(GameResources.GameImage("Menu"), 0, 0);
 		}
@@ -270,6 +270,10 @@ public static class UtilityFunctions
 		else if (GameController.CurrentState == GameState.Deploying)
 		{
 			SwinGame.DrawBitmap(GameResources.GameImage("Deploy"), 0, 0);
+		}
+		else if (GameController.CurrentState == GameState.ViewingHighScores)
+		{
+			SwinGame.DrawBitmap(GameResources.GameImage("EndScore"), 0, 0);
 		}
 		// If its any other screen.
 		else
@@ -374,5 +378,12 @@ public static class UtilityFunctions
 			UpdateAnimations();
 			GameController.DrawScreen();
 		}
+	}
+
+	public static void DrawEndGameScores()
+	{
+		SwinGame.DrawText("Shots Made: " + GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Courier"), 100, 550);
+		SwinGame.DrawText("Hits: " + GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Courier"), 250, 550);
+		SwinGame.DrawText("Misses: " + GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Courier"), 400, 550);
 	}
 }
