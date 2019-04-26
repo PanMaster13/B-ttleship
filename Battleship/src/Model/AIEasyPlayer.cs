@@ -110,6 +110,10 @@ public class AIEasyPlayer : AIPlayer
             AddTarget(_Random.Next(0, EnemyGrid.Height), _Random.Next(0, EnemyGrid.Width));
             AddTarget(_Random.Next(0, EnemyGrid.Height), _Random.Next(0, EnemyGrid.Width));
             AddTarget(_Random.Next(0, EnemyGrid.Height), _Random.Next(0, EnemyGrid.Width));
+            AddTarget(_Random.Next(0, EnemyGrid.Height), _Random.Next(0, EnemyGrid.Width));
+            AddTarget(_Random.Next(0, EnemyGrid.Height), _Random.Next(0, EnemyGrid.Width));
+            AddTarget(_Random.Next(0, EnemyGrid.Height), _Random.Next(0, EnemyGrid.Width));
+
         }
         // If the attack is at a place that is already attacked.
         else if (result.Value == ResultOfAttack.ShotAlready)
