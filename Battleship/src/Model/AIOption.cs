@@ -16,5 +16,9 @@ public enum AIOption
 	/// <summary>
 	/// As medium, but removes shots once it misses.
 	/// </summary>
-	Hard
+	Hard,
+	/// <summary>
+	/// As hard, but AI needs to miss twice before changing turns
+	/// </summary>
+	Insane,
 }

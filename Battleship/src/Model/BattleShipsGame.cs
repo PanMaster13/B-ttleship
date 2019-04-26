@@ -27,6 +27,7 @@ public class BattleShipsGame
 	
 	private Player[] _players = new Player[3];
 	private int _playerIndex = 0;
+	private int InsaneMissCounter = 0;
 	
 	/// <summary>
 	/// The current player.
@@ -99,7 +100,18 @@ public class BattleShipsGame
         // Change player if the last hit was a miss.
         if (newAttack.Value == ResultOfAttack.Miss)
 		{
-            _playerIndex = otherPlayer;
+			if (_players[_playerIndex].GetType() == typeof(AIInsanePlayer))
+			{
+				InsaneMissCounter++;
+				if (InsaneMissCounter == 2)
+				{
+					InsaneMissCounter = 0;
+					_playerIndex = otherPlayer;
+				}
+			}
+			else {
+				_playerIndex = otherPlayer;
+			}
 		}
 		
 		return newAttack;

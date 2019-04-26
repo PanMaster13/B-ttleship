@@ -122,6 +122,11 @@ public static class GameController
                     _ai = new AIHardPlayer(_theGame);
                     break;
                 }
+			case AIOption.Insane:
+				{
+					_ai = new AIInsanePlayer(_theGame);
+					break;
+				}
 
             default:
                 {
@@ -244,7 +249,6 @@ public static class GameController
 
                     while (Audio.SoundEffectPlaying(GameResources.GameSound("Sink")))
                     {
-                        SwinGame.Delay(0);
                         SwinGame.RefreshScreen();
                     }
 

@@ -69,6 +69,7 @@ public static class GameResources
         NewSound("Easy", "easy.wav");
         NewSound("Medium", "medium.wav");
         NewSound("Hard", "hard.wav");
+		NewSound("Insane", "insane.wav");
     }
 	
     /// <summary>

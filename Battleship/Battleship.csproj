@@ -161,6 +161,7 @@
     <None Include="Resources\Resources\sounds\winner.wav" />
     <None Include="Resources\images\main_menu.jpg" />
     <None Include="Resources\images\enddetailsback.jpg" />
+    <None Include="Resources\sounds\insane.wav" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\DeploymentController.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="src\Model\Tile.cs" />
     <Compile Include="src\Model\TileView.cs" />
     <Compile Include="src\GameController.cs" />
+    <Compile Include="src\Model\AIInsanePlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
