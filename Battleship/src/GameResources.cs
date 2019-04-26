@@ -77,8 +77,8 @@ public static class GameResources
 	private static void LoadMusic()
 	{
 		NewMusic("Background", "mainMenuMusic.mp3");
-        Audio.SetMusicVolume((float) 0.1);
-        Console.WriteLine(Audio.MusicVolume());
+        Audio.SetMusicVolume((float) 0);
+        //Audio.SetMusicVolume((float)0.1);
 	}
 	
 	/// <summary>

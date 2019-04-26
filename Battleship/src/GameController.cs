@@ -106,6 +106,11 @@ public static class GameController
         // create the players
         switch (_aiSetting)
         {
+            case AIOption.Easy:
+                {
+                    _ai = new AIEasyPlayer(_theGame);
+                    break;
+                }
             case AIOption.Medium:
                 {
                     _ai = new AIMediumPlayer(_theGame);
@@ -120,7 +125,7 @@ public static class GameController
 
             default:
                 {
-                    _ai = new AIHardPlayer(_theGame);
+                    _ai = new AIEasyPlayer(_theGame);
                     break;
                 }
         }
@@ -209,7 +214,6 @@ public static class GameController
         if (isHuman)
         {
             UtilityFunctions.Message = "You " + result.ToString();
-
         }
         else
         {
