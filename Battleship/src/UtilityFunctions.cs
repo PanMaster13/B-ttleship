@@ -291,7 +291,7 @@ public static class UtilityFunctions
 	/// <param name="col">The column the ship is hit.</param>
 	public static void AddExplosion(int row, int col)
 	{
-		AddAnimation(row, col, "Explosion");
+		AddAnimation(row, col, "Splash");
 	}
 
 	/// <summary>
@@ -317,20 +317,20 @@ public static class UtilityFunctions
 	/// <param name="image">Type of animation to be used.</param>
 	private static void AddAnimation(int row, int col, string image)
 	{
-		Sprite s = default(Sprite);
-		Bitmap imgObj = default(Bitmap);
+		Sprite s;
+		Bitmap imgObj;
 		
 		imgObj = GameResources.GameImage(image);
 		imgObj.SetCellDetails(40, 40, 3, 3, 7);
 		
-		AnimationScript animation = default(AnimationScript);
-		animation = SwinGame.LoadAnimationScript(image+".txt");
+		AnimationScript animation;
+		animation = SwinGame.LoadAnimationScript("splash.txt");
 		
 		s = SwinGame.CreateSprite(imgObj, animation);
 		s.X = FIELD_LEFT + col * (CELL_WIDTH + CELL_GAP);
 		s.Y = FIELD_TOP + row * (CELL_HEIGHT + CELL_GAP);
 		
-		s.StartAnimation(image);
+		s.StartAnimation("splash");
 		_Animations.Add(s);
 	}
 
