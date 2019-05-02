@@ -23,7 +23,7 @@ public static class MenuController
 	private const int MENU_TOP = 550;
 	private const int MENU_LEFT = 30;
 	private const int MENU_GAP = 0;
-	private const int BUTTON_WIDTH = 75;
+	private const int BUTTON_WIDTH = 94;
 	private const int BUTTON_HEIGHT = 15;
 	private const int BUTTON_SEP = BUTTON_WIDTH + MENU_GAP;
 	private const int TEXT_OFFSET = 0;
@@ -55,7 +55,7 @@ public static class MenuController
 	/// </summary>
 	public static void HandleMainMenuInput()
 	{
-		HandleMenuInput(MAIN_MENU, 0, 0);
+		HandleMenuInput(MAIN_MENU, 0, 2);
 	}
 	
 	/// <summary>
@@ -64,11 +64,11 @@ public static class MenuController
 	public static void HandleDifficultyMenuInput()
 	{
 		bool handled = false;
-		handled = HandleMenuInput(DIFFICULTY_MENU, 1, 1);
+		handled = HandleMenuInput(DIFFICULTY_MENU, 1, 3);
 		
 		if (!handled)
 		{
-			HandleMenuInput(MAIN_MENU, 0, 0);
+			HandleMenuInput(MAIN_MENU, 0, 2);
 		}
 	}
 	
@@ -80,7 +80,7 @@ public static class MenuController
 	/// </remarks>
 	public static void HandleGameMenuInput()
 	{
-		HandleMenuInput(GAME_MENU, 0, 0);
+		HandleMenuInput(GAME_MENU, 0, 2);
 	}
 	
 	/// <summary>
@@ -157,7 +157,7 @@ public static class MenuController
 		// SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50).
 		
 		DrawButtons(MAIN_MENU);
-		DrawButtons(DIFFICULTY_MENU, 1, 1);
+		DrawButtons(DIFFICULTY_MENU, 1, 3);
 	}
 	
 	/// <summary>
@@ -166,7 +166,7 @@ public static class MenuController
 	/// <param name="menu">The index of the menu to draw.</param>
 	private static void DrawButtons(int menu)
 	{
-		DrawButtons(menu, 0, 0);
+		DrawButtons(menu, 0, 2); //change the last 0 into 2 to centralise it
 	}
 	
 	/// <summary>
