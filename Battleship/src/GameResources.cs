@@ -18,6 +18,7 @@ public static class GameResources
 		NewFont("CourierSmall", "cour.ttf", 8);
 		NewFont("Menu", "ffaccess.ttf", 9);
 		NewFont("GameMenu", "ffaccess.ttf", 10);
+		NewFont("Scores", "ffaccess.ttf", 12);
 	}
 	
     /// <summary>
