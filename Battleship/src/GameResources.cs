@@ -61,7 +61,7 @@ public static class GameResources
 	private static void LoadSounds()
 	{
         NewSound("Error", "error.wav");
-		NewSound("Hit", "hit.wav");
+		NewSound("Hit", "boom.wav");
 		NewSound("Sink", "sink.wav");
 		NewSound("Siren", "siren.wav");
 		NewSound("Miss", "watershot.wav");
