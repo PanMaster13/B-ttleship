@@ -1,0 +1,5 @@
+﻿'Battleship.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Battleship.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\Users\Rmuku\Desktop\Battleship\Battleship (Before Fix)\bin\Debug\Battleship.exe'. Symbols loaded.
+'Battleship.exe' (CLR v4.0.30319: Battleship.exe): Loaded 'C:\Users\Rmuku\Desktop\Battleship\Battleship (Before Fix)\bin\Debug\SwinGame.dll'. Module was built without symbols.
+'Battleship.exe' (CLR v4.0.30319: Battleship.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+The program '[1368] Battleship.exe' has exited with code 0 (0x0).
