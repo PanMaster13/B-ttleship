@@ -14,7 +14,7 @@ public static class GameController
     private static Stack<GameState> _state = new Stack<GameState>();
 	private static int _humanShips, _aiShips;
 
-    private static AIOption _aiSetting;
+    public static AIOption _aiSetting;
 
     ///<summary>
     ///CurrentState returns the current state of the game, indicating which screen is currently being used.
